@@ -4,9 +4,26 @@
   <meta charset="utf-8">
   <title>InnovifyApp</title>
   <base href="/">
-
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./assets/images/innovify.jpg">
+  <script>
+    $( function() {
+      $("#datepicker").datepicker({maxDate: "-48M" });
+    } );
+    var openFile = function(event) {
+      var input = event.target;
+
+      var reader = new FileReader();
+      reader.onload = function(){
+        var dataURL = reader.result;
+        var output = document.getElementById('output');
+        output.src = dataURL;
+      };
+      reader.readAsDataURL(input.files[0]);
+    };
+  </script>
 </head>
 <body>
   <app-root>Loading...</app-root>

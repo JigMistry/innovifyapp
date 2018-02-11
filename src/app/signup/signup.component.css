@@ -1,0 +1,7 @@
+.ng-invalid:not(form).ng-touched  {
+  border-left: 10px solid #a94442; /* red */
+}
+.container{
+  width: 400px;
+  /* border-left: 3px solid black; */
+}

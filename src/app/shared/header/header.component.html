@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row"><span style="font-size:1.5em;"><b>Innovify User Management App</b></span></div>
+  <div class="row">
+    <div class="col-xs-4" *ngIf="!isAuthenticated"><button class="btn btn-success" routerLink="/signin">Sign in</button></div>
+    <div class="col-xs-4" *ngIf="!isAuthenticated"><button class="btn btn-success" routerLink="/signup">Sign up</button></div>
+    <div class="col-xs-4"><button class="btn btn-success" routerLink="/home">Home</button></div>
+    <div class="col-xs-4" *ngIf="isAuthenticated"><button class="btn btn-danger" (click)="onSignout()">Sign Out</button></div>
+  </div>
+</div>

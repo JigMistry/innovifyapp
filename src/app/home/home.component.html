@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" style="text-align: center">
+        <h2>Profile Information</h2>
+        <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4" *ngIf="user.profileImage.fileType">
+      <img src="data:{{user.profileImage.fileType}};base64,{{user.profileImage.fileData}}" style="border-radius:50px;heigth:100px;width:100px;border:2px solid black">
+    </div>
+    <div class="col-sm-4" *ngIf="!user.profileImage.fileType">
+      <img src="../../assets/images/avatar.png" style="border-radius:50px;heigth:100px;width:100px;border:2px solid black">
+    </div>
+    <div class="col-sm-8">
+      <div class="row" style="padding-bottom:30px;">
+        <div class="col-sm-6">
+          <strong>First Name :</strong> {{user.first_name | uppercase}}
+        </div>
+        <div class="col-sm-6">
+          <strong>Last Name:</strong> {{user.last_name | uppercase}}
+        </div>
+      </div>
+      <div class="row" style="padding-bottom:30px;">
+        <div class="col-sm-6">
+          <strong>Surname :</strong> {{user.surname | uppercase}}
+        </div>
+        <div class="col-sm-6">
+          <strong>Mobile no. :</strong> {{user.mobile_no}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <strong>Date of Birth :</strong> {{user.dob}}
+        </div>
+        <div class="col-sm-6">
+          <strong>email :</strong> {{user.email}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

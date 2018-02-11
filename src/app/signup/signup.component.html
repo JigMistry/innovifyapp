@@ -1,0 +1,76 @@
+<div class="container">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>First Name</label>
+          <input id="firstName" class="form-control" type="text" formControlName="first_name" placeholder="enter first name">
+        </div>
+        <div *ngIf="signupForm.get('first_name').errors?.required && signupForm.get('first_name').touched"><span style="color:red">First name required !</span></div>
+        <div *ngIf="signupForm.get('first_name').errors?.minlength"><span style="color:red">min. 2 characters required !</span></div>
+        <div *ngIf="signupForm.get('first_name').errors?.maxlength"><span style="color:red">max. 30 characters allow !</span></div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Last Name</label>
+          <input id="lastName" class="form-control" type="text" formControlName="last_name" placeholder="enter last name">
+        </div>
+        <div *ngIf="signupForm.get('last_name').errors?.minlength"><span style="color:red">min. 2 characters required !</span></div>
+        <div *ngIf="signupForm.get('last_name').errors?.maxlength"><span style="color:red">max. 30 characters allow !</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Surname</label>
+          <input id="surName" class="form-control" type="text" formControlName="surname" placeholder="enter surname">
+        </div>
+        <div *ngIf="signupForm.get('surname').errors?.minlength"><span style="color:red">min. 2 characters required !</span></div>
+        <div *ngIf="signupForm.get('surname').errors?.maxlength"><span style="color:red">max. 30 characters allow !</span></div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Mobile No.</label>
+          <input id="mobile" class="form-control" type="number" formControlName="mobile_no" placeholder="enter mobile number">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Email</label>
+          <input id="email" class="form-control" type="email" formControlName="email" placeholder="enter email/username">
+        </div>
+        <div *ngIf="signupForm.get('email').errors?.email && signupForm.get('email').touched "><span style="color:red">Invalid Email !</span></div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Password</label>
+          <input id="password" class="form-control" type="password" formControlName="password" placeholder="enter password">
+        </div>
+        <div *ngIf="signupForm.get('password').errors?.minlength"><span style="color:red">min. 5 characters required !</span></div>
+        <div *ngIf="signupForm.get('password').errors?.required && signupForm.get('password').touched "><span style="color:red">Password is required !</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <input id="datepicker" class="form-control" type="text" formControlName="dob" >
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="form-group">
+          <label>Profile Picture</label>
+          <input id="profileImage" class="form-control" formControlName="profileImage" type="file" accept='image/*' onchange='openFile(event)' (change)="getFile($event)">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <img id='output' src="../../assets/images/avatar.png" style="heigth:50px;width:50px;display:inline;border-radius:50px;">
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="signupForm.invalid" >Register</button>
+  </form>
+</div>
